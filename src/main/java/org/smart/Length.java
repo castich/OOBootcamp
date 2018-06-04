@@ -10,7 +10,7 @@ public abstract class Length {
 
     public Length(double value){
         if(this.getClass()==Inch.class){
-            this.value=value;
+            this.value=value*INCH;
         }
         else if(this.getClass()==Feet.class){
             this.value=value*FEET;
