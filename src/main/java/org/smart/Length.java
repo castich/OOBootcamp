@@ -3,10 +3,10 @@ package org.smart;
 public abstract class Length {
 
     private double value;
-    private final double INCH = 1;
-    private final double FEET = 12;
-    private final double YARD = 36;
-    private final double MILE = 63360;
+    private static final double INCH = 1;
+    private static final double FEET = 12;
+    private static final double YARD = 36;
+    private static final double MILE = 63360;
 
     public Length(double value){
         if(this.getClass()==Inch.class){
