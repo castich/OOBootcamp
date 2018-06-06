@@ -8,8 +8,8 @@ public class LengthTest {
 
     @Test
     public void test_mile_3_equals_mile_3(){
-        System.out.println(new Mile(3));
-        System.out.println(new Mile(3));
+        System.out.println(new Mile(3).getValue());
+        System.out.println(new Mile(3).getValue());
         assertEquals(new Mile(3), new Mile(3));
     }
 
@@ -117,5 +117,4 @@ public class LengthTest {
     public void test_5_miles_equals_to_26400_feet(){
         assertEquals(new Mile(5), new Feet(26400));
     }
-
 }

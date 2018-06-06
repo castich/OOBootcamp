@@ -3,25 +3,12 @@ package org.smart;
 public abstract class Length {
 
     private double value;
-    private static final double INCH = 1;
-    private static final double FEET = 12;
-    private static final double YARD = 36;
-    private static final double MILE = 63360;
+    private double standard;
 
     public Length(double value){
-        if(this.getClass()==Inch.class){
-            this.value=value*INCH;
-        }
-        else if(this.getClass()==Feet.class){
-            this.value=value*FEET;
-        }
-        else if(this.getClass()==Yard.class){
-            this.value=value*YARD;
-        }
-        else if(this.getClass()==Mile.class){
-            this.value=value*MILE;
-        }
-        else{
+        if(this.getClass()==Inch.class || this.getClass()==Feet.class || this.getClass()==Yard.class || this.getClass()==Mile.class){
+            this.value = value;
+        }else{
             this.value = 0;
         }
     }
@@ -34,11 +21,19 @@ public abstract class Length {
         this.value = value;
     }
 
+    protected double getStandard() {
+        return standard;
+    }
+
+    protected void setStandard(double standard) {
+        this.standard = standard;
+    }
+
     @Override
     public boolean equals(Object obj){
         if(obj==null){
             return false;
         }
-        return this.getValue()==((Length)obj).getValue();
+        return this.getStandard()==((Length)obj).getStandard();
     }
 }
