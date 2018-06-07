@@ -117,4 +117,24 @@ public class LengthTest {
     public void test_5_miles_equals_to_26400_feet(){
         assertEquals(new Mile(5), new Feet(26400));
     }
+
+    @Test
+    public void test_13_inches_plus_11_inches_equals_2_feet(){
+        assertEquals(new Inch(13).add(new Inch(11)),new Feet(2));
+    }
+
+    @Test
+    public void test_3_feet_plus_2_yards_equals_3_yards(){
+        assertEquals(new Feet(3).add(new Yard(2)), new Yard(3));
+    }
+
+    @Test
+    public void test_3_feet_plus_3_feet_equals_6_feet(){
+        assertEquals(new Feet(3).add(new Feet(3)), new Feet(6));
+    }
+
+    @Test
+    public void test_3_feet_plus_4_feet_is_not_equals_5_feet(){
+        assertNotEquals(new Feet(3).add(new Feet(4)), new Feet(5));
+    }
 }

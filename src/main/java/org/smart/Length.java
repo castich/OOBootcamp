@@ -32,6 +32,12 @@ public abstract class Length {
         return false;
     }
 
+    public Length add(Length addend){
+        double sum = this.getStandard()+addend.getStandard();
+        Inch inch = new Inch(sum);
+        return inch;
+    }
+
     @Override
     public final boolean equals(Object obj){
         if(obj==null){
