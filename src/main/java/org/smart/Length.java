@@ -6,11 +6,7 @@ public abstract class Length {
     private double standard;
 
     public Length(double value){
-        if(this.getClass()==Inch.class || this.getClass()==Feet.class || this.getClass()==Yard.class || this.getClass()==Mile.class){
-            this.value = value;
-        }else{
-            this.value = 0;
-        }
+        this.value = value;
     }
 
     public double getValue() {
@@ -21,19 +17,30 @@ public abstract class Length {
         this.value = value;
     }
 
-    protected double getStandard() {
+    public double getStandard() {
         return standard;
     }
 
-    protected void setStandard(double standard) {
+    public void setStandard(double standard) {
         this.standard = standard;
     }
 
+    private boolean isAllowedClass(Object obj){
+        if(obj.getClass()==Inch.class || obj.getClass()==Feet.class || obj.getClass()==Yard.class || obj.getClass()==Mile.class){
+            return true;
+        }
+        return false;
+    }
+
     @Override
-    public boolean equals(Object obj){
+    public final boolean equals(Object obj){
         if(obj==null){
             return false;
         }
-        return this.getStandard()==((Length)obj).getStandard();
+        else if(isAllowedClass(this) && isAllowedClass(obj)){
+            return this.getStandard()==((Length)obj).getStandard();
+        }else{
+            return false;
+        }
     }
 }
