@@ -5,6 +5,11 @@ public class Inch extends Length {
 
     public Inch(double value){
         super(value);
-        setStandard(value*INCH);
+//        setStandard(value*INCH);
+    }
+
+    @Override
+    public double getStandard() {
+        return value*INCH;
     }
 }

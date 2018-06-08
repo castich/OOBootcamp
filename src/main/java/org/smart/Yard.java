@@ -5,6 +5,11 @@ public class Yard extends Length {
 
     public Yard(double value) {
         super(value);
-        setStandard(value*YARD);
+//        setStandard(value*YARD);
+    }
+
+    @Override
+    public double getStandard() {
+        return value*YARD;
     }
 }

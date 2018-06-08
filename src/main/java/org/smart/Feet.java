@@ -5,6 +5,11 @@ public class Feet extends Length {
 
     public Feet(double value){
         super(value);
-        setStandard(value*FEET);
+//        setStandard(value*FEET);
+    }
+
+    @Override
+    public double getStandard() {
+        return value*FEET;
     }
 }

@@ -8,8 +8,6 @@ public class LengthTest {
 
     @Test
     public void test_mile_3_equals_mile_3(){
-        System.out.println(new Mile(3).getValue());
-        System.out.println(new Mile(3).getValue());
         assertEquals(new Mile(3), new Mile(3));
     }
 

@@ -2,28 +2,13 @@ package org.smart;
 
 public abstract class Length {
 
-    private double value;
-    private double standard;
+    protected double value;
 
     public Length(double value){
         this.value = value;
     }
 
-    public double getValue() {
-        return value;
-    }
-
-    public void setValue(double value) {
-        this.value = value;
-    }
-
-    public double getStandard() {
-        return standard;
-    }
-
-    public void setStandard(double standard) {
-        this.standard = standard;
-    }
+    public abstract double getStandard();
 
     private boolean isAllowedClass(Object obj){
         if(obj.getClass()==Inch.class || obj.getClass()==Feet.class || obj.getClass()==Yard.class || obj.getClass()==Mile.class){
@@ -40,13 +25,13 @@ public abstract class Length {
 
     @Override
     public final boolean equals(Object obj){
+        return isObjectValid(obj) && (this.getStandard()==((Length)obj).getStandard());
+    }
+
+    private boolean isObjectValid(Object obj) {
         if(obj==null){
-            return false;
+            return true;
         }
-        else if(isAllowedClass(this) && isAllowedClass(obj)){
-            return this.getStandard()==((Length)obj).getStandard();
-        }else{
-            return false;
-        }
+        return isAllowedClass(this) && isAllowedClass(obj);
     }
 }

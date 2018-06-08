@@ -5,6 +5,11 @@ public class Mile extends Length {
 
     public Mile(double value){
         super(value);
-        setStandard(value*MILE);
+//        setStandard(value*MILE);
+    }
+
+    @Override
+    public double getStandard() {
+        return value*MILE;
     }
 }
