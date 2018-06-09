@@ -30,7 +30,7 @@ public abstract class Length {
 
     private boolean isObjectValid(Object obj) {
         if(obj==null){
-            return true;
+            return false;
         }
         return isAllowedClass(this) && isAllowedClass(obj);
     }
